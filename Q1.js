@@ -6,7 +6,7 @@ Input: array of mixed characters
 
 Output: new array of only numbers
 
-Constraints: n/a
+Constraints: don't mutate original data
 
 Edge cases; handle strings, booleans, etc.
 
@@ -16,13 +16,11 @@ Solution:
 */
 
 function keepOnlyNumbers (array) {
-  if (Array.isArray(array) === false) {
+  if (!(Array.isArray(array))) {
     return null;
   }
-  // don't mutate original data; can be changed to reduce space complexity
-  var copy = array.slice();
-
-  return copy.filter(item => typeof item === 'number');
+  // don't mutate original data by using filter higher order function
+  return array.filter(item => typeof item === 'number');
 };
 
 console.log(keepOnlyNumbers('mock')); // null
